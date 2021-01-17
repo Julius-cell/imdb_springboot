@@ -41,42 +41,42 @@ public class Peliculas {
 	 */
 	// @ApiModelProperty añade info del modelo en la interfaz.
 	@ApiModelProperty("ID único de cada alumno")
-	@Column(name = "ID")
+	@Column(name = "ID", updatable = false)
 	private Integer id;
 	
 	/**
 	 * Título de entidad Pelicula
 	 */
-	@Column(name = "TITLE")
+	@Column(name = "TITLE", nullable = false)
 	private String title;
 	
 	/**
 	 * Director de entidad Pelicula
 	 */
-	@Column(name = "DIRECTOR")
+	@Column(name = "DIRECTOR", nullable = false)
 	private String director;
 	
 	/**
 	 * Rating de entidad Pelicula
 	 */
-	@Column(name = "RATING")
+	@Column(name = "RATING", nullable = false)
 	private Float rating;
 	
 	/**
 	 * Género de entidad Pelicula
 	 */
-	@Column(name = "GENRE")
+	@Column(name = "GENRE", nullable = false)
 	private String genre;
 	
 	/**
 	 * Año de creación de entidad Pelicula
 	 */
-	@Column(name = "YEAR")
+	@Column(name = "YEAR", nullable = false)
 	private Integer year;
 	
 	/**
 	 * Pais de entidad Pelicula
 	 */
-	@Column(name = "COUNTRY")
+	@Column(name = "COUNTRY", nullable = false)
 	private String country;
 }
