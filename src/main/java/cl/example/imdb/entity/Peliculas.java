@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -22,7 +23,11 @@ import lombok.Data;
  */
 @Data			// Genera el boilerplate asociado con POJO's (Plain Old Java Object) y Beans.
 @Entity			// Establece que la clase sea una Entidad.
-@Table(name = "Peliculas")
+@Table(name = "Peliculas",
+		uniqueConstraints = {
+				@UniqueConstraint(name = "pelicula_title_unique", columnNames = "title")
+		}
+)
 @ApiModel(description = "Detalles sobre Tabla Peliculas")
 public class Peliculas {
 
