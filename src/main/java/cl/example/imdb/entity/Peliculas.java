@@ -24,9 +24,9 @@ import lombok.Data;
 @Data			// Genera el boilerplate asociado con POJO's (Plain Old Java Object) y Beans.
 @Entity			// Establece que la clase sea una Entidad.
 @Table(name = "Peliculas",
-		uniqueConstraints = {
-				@UniqueConstraint(name = "pelicula_title_unique", columnNames = "title")
-		}
+	uniqueConstraints = {
+		@UniqueConstraint(name = "pelicula_title_unique", columnNames = "title")	// unique values
+	}
 )
 @ApiModel(description = "Detalles sobre Tabla Peliculas")
 public class Peliculas {
@@ -40,48 +40,38 @@ public class Peliculas {
 	@Id		// Specifies that this attribute is the primary key of this entity.
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = PELICULAS_SEQ)
 	@SequenceGenerator(sequenceName = PELICULAS_SEQ, allocationSize = 1, name = "PELICULAS_SEQ")
-	
 	/**
 	 * Id de entidad Pelicula
 	 */
 	// @ApiModelProperty añade info del modelo en la interfaz.
 	@ApiModelProperty("ID único de cada alumno")
-	@Column(name = "ID", updatable = false)
+	@Column(name = "ID")
 	private Integer id;
 	
-	/**
-	 * Título de entidad Pelicula
-	 */
-	@Column(name = "TITLE", nullable = false)
+	@Column(name = "TITLE")
 	private String title;
 	
-	/**
-	 * Director de entidad Pelicula
-	 */
-	@Column(name = "DIRECTOR", nullable = false)
+	@Column(name = "DIRECTOR")
 	private String director;
 	
-	/**
-	 * Rating de entidad Pelicula
-	 */
-	@Column(name = "RATING", nullable = false)
+	@Column(name = "RATING")
 	private Float rating;
 	
-	/**
-	 * Género de entidad Pelicula
-	 */
-	@Column(name = "GENRE", nullable = false)
+	@Column(name = "GENRE")
 	private String genre;
 	
-	/**
-	 * Año de creación de entidad Pelicula
-	 */
-	@Column(name = "YEAR", nullable = false)
+	@Column(name = "YEAR")
 	private Integer year;
 	
-	/**
-	 * Pais de entidad Pelicula
-	 */
-	@Column(name = "COUNTRY", nullable = false)
-	private String country;
+	@Column(name = "DURATION")
+	private String duration;
+	
+	@Column(name = "DESCRIPTION")
+	private String description;
+	
+	@Column(name = "IMAGE")
+	private String image;
+	
+	@Column(name = "LANGUAJE")
+	private String language;
 }

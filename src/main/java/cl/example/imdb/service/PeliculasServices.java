@@ -51,7 +51,7 @@ public class PeliculasServices implements IPeliculasServices {
 	 */
 	@Override
 	public List<Peliculas> getPeliculaByTitle(String nombrePelicula) {
-		return peliculasRepository.findByTitleIgnoreCase(nombrePelicula);
+		return peliculasRepository.findByTitleContainingIgnoreCase(nombrePelicula);
 	}
 
 	/**
@@ -68,9 +68,21 @@ public class PeliculasServices implements IPeliculasServices {
 		if (peliDirector != null) {
 			existingPelicula.setDirector(peliDirector);
 		}
-		String peliCountry = newPelicula.getCountry();
-		if (peliCountry != null) {
-			existingPelicula.setCountry(peliCountry);
+		String peliDuration = newPelicula.getDuration();
+		if (peliDuration != null) {
+			existingPelicula.setDuration(peliDuration);
+		}
+		String peliDescription = newPelicula.getDescription();
+		if (peliDescription != null) {
+			existingPelicula.setDescription(peliDescription);
+		}
+		String peliImage = newPelicula.getImage();
+		if (peliImage != null) {
+			existingPelicula.setImage(peliImage);
+		}
+		String peliLanguage = newPelicula.getLanguage();
+		if (peliLanguage != null) {
+			existingPelicula.setLanguage(peliLanguage);
 		}
 		String peliGenre = newPelicula.getGenre();
 		if (peliGenre != null) {

@@ -16,7 +16,7 @@ import cl.example.imdb.entity.Peliculas;
  * @version 1.0
  * @since 15/01/2021
  */
-public interface PeliculasRepository extends JpaRepository<Peliculas, Integer> { 	// Es necesario añadir public?
+public interface PeliculasRepository extends JpaRepository<Peliculas, Integer> {
 
 	/**
 	 * Retorna la entidad identificada por su ID
@@ -26,5 +26,6 @@ public interface PeliculasRepository extends JpaRepository<Peliculas, Integer> {
 	/**
 	 * Retorna la entidad identificada por tu Título
 	 */
-	List<Peliculas> findByTitleIgnoreCase(String nombrePelicula);
+	List<Peliculas> findByTitleContainingIgnoreCase(String nombrePelicula);
+	
 }
