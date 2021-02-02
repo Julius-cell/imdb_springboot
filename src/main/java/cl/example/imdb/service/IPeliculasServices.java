@@ -1,6 +1,7 @@
 package cl.example.imdb.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import cl.example.imdb.entity.Peliculas;
 
@@ -27,4 +28,9 @@ public interface IPeliculasServices {
 	Peliculas validarUpdatePelicula(Peliculas existingPelicula, Peliculas newPelicula);
 
 	List<Peliculas> getPeliculaByTitle(String nombrePelicula);
+
+	/**
+	 * Método que devuelve pelicula por su ID.
+	 */
+	Optional<Peliculas> getPeliculaById(Integer id);
 }

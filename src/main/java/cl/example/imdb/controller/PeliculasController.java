@@ -1,6 +1,7 @@
 package cl.example.imdb.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -64,11 +65,30 @@ public class PeliculasController {
 	 * 
 	 * @return Todas las Peliculas
 	 */
-	@GetMapping(value = "/peliculas", produces = "application/json")
+	@GetMapping(value = "/movies", produces = "application/json")
 	@ApiOperation(value = "Todas las peliculas", notes = "Entrega todas las peliculas.")
 	public ResponseEntity<List<Peliculas>> getPeliculas() {
 		return new ResponseEntity<List<Peliculas>>(peliculasServices.getPeliculas(), HttpStatus.OK);
 	}
+	
+	
+	
+	
+	/**
+	 * Método que llama a la función .getPeliculaById() del servicio, la cual retorna
+	 * un listado con la pelicula que esté en la DB.
+	 * 
+	 * @return Pelicula
+	 */
+	@GetMapping(value = "/find/{id}", produces = "application/json")
+	@ApiOperation(value = "Retorna pelicula por ID", notes = "Entrega una pelicula.")
+	public ResponseEntity<Optional<Peliculas>> getPeliculaById(@PathVariable("id") Integer id) {
+		return new ResponseEntity<Optional<Peliculas>>(peliculasServices.getPeliculaById(id), HttpStatus.OK);
+	}
+	
+	
+	
+	
 	
 	/**
 	 * Método que llama a la función .getPeliculaByTitle() del servicio, la cual retorna

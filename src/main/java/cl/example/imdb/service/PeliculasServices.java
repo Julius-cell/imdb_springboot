@@ -46,6 +46,15 @@ public class PeliculasServices implements IPeliculasServices {
 	}
 	
 	/**
+	 * Método que devuelve pelicula por su ID.
+	 */
+	@Override
+	@Transactional
+	public Optional<Peliculas> getPeliculaById(Integer id) {
+		return peliculasRepository.findById(id);
+	}
+	
+	/**
 	 * Método que devuelve pelicula que coincida con el  Título ingresado.
 	 * @return instancia de Peliculas solicitada
 	 */
