@@ -29,7 +29,7 @@ import lombok.Data;
 	}
 )
 @ApiModel(description = "Detalles sobre Tabla Peliculas")
-public class Peliculas {
+public class Movies {
 
 	/*
 	 * @Id El id de la entidad.
@@ -37,15 +37,15 @@ public class Peliculas {
 	 * @SequenceGenerator Asigna auto un valor de identidad numérico en la interfaz.
 	 */
 	protected static final String PELICULAS_SEQ = "peliculas_seq";
-	@Id		// Specifies that this attribute is the primary key of this entity.
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = PELICULAS_SEQ)
-	@SequenceGenerator(sequenceName = PELICULAS_SEQ, allocationSize = 1, name = "PELICULAS_SEQ")
+	
 	/**
 	 * Id de entidad Pelicula
 	 */
 	// @ApiModelProperty añade info del modelo en la interfaz.
-	@ApiModelProperty("ID único de cada alumno")
-	@Column(name = "ID")
+	@Id		// Specifies that this attribute is the primary key of this entity.
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = PELICULAS_SEQ)
+	@SequenceGenerator(sequenceName = PELICULAS_SEQ, allocationSize = 1, name = "PELICULAS_SEQ")
+	@ApiModelProperty("ID único de cada pelicula")
 	private Integer id;
 	
 	@Column(name = "TITLE")
@@ -72,6 +72,6 @@ public class Peliculas {
 	@Column(name = "IMAGE")
 	private String image;
 	
-	@Column(name = "LANGUAJE")
+	@Column(name = "LANGUAGE")
 	private String language;
 }
