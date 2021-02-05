@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import cl.example.imdb.entity.Peliculas;
+import cl.example.imdb.entity.Movies;
 
 
 /**
@@ -16,16 +16,13 @@ import cl.example.imdb.entity.Peliculas;
  * @version 1.0
  * @since 15/01/2021
  */
-public interface PeliculasRepository extends JpaRepository<Peliculas, Integer> {
+public interface MoviesRepository extends JpaRepository<Movies, Integer> {
 
 	/**
-	 * Retorna la entidad identificada por su ID
+	 * 
+	 * @param nombrePelicula
+	 * @return Las peliculas de la BD que coinciden con la busqueda.
 	 */
-	Optional<Peliculas> findById(Integer id);
-
-	/**
-	 * Retorna la entidad identificada por tu Título
-	 */
-	List<Peliculas> findByTitleContainingIgnoreCase(String nombrePelicula);
+	List<Movies>findByTitleContainingIgnoreCase(String movieTitle);
 	
 }
