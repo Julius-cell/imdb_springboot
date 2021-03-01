@@ -36,7 +36,7 @@ public class Movies {
 	 * @GeneratedValue Establece claves primarias autoincrementale.
 	 * @SequenceGenerator Asigna auto un valor de identidad numérico en la interfaz.
 	 */
-	protected static final String PELICULAS_SEQ = "peliculas_seq";
+	protected static final String PELICULAS_SEQ = "peliculas_seq";		// protected no bien aplicado
 	
 	/**
 	 * Id de entidad Pelicula
